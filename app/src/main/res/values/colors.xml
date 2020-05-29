@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#192A56</color>
+    <color name="colorPrimaryDark">#30336B</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="background">#0A3D62</color>
+
+    <color name="hourTextColor">#D63031</color>
+    <color name="minuteTextColor">#2475B0</color>
+    <color name="secondTextColor">#25CCF7</color>
+    <color name="dotColor">#45CE30</color>
+</resources>
