@@ -5,19 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
-import android.widget.Button
-import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    var hour: TextView? = null
-    var minute: TextView? = null
-    var second: TextView? = null
-    var milliSecond: TextView? = null
-    var controllButton: Button? = null
-    var resetButton: Button? = null
-
-
     var flag = false
     var handler: Handler? = null
 
@@ -34,32 +24,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        hour = findViewById(R.id.hour)
-        minute = findViewById(R.id.minute)
-        second = findViewById(R.id.second)
-        milliSecond = findViewById(R.id.milisecond)
-        controllButton = findViewById(R.id.control)
 
-
-
-        controllButton?.setOnClickListener {
+        control.setOnClickListener {
             StartTime = SystemClock.elapsedRealtime()
             if (flag){
                 handler?.removeCallbacks(runnable)
-                controllButton?.text = "START"
-                controllButton?.setBackgroundResource(R.drawable.start_button_background)
+                control.text = "START"
+                control.setBackgroundResource(R.drawable.start_button_background)
                 flag = false
             }
             else {
                 handler?.postDelayed(runnable,0)
-                controllButton?.text = "STOP"
+                control.text = "STOP"
                 StartTime = SystemClock.elapsedRealtime()
-                controllButton?.setBackgroundResource(R.drawable.stop_button_background)
+                control.setBackgroundResource(R.drawable.stop_button_background)
                 flag = true
             }
         }
-
-
         handler = Handler()
     }
 
@@ -75,10 +56,10 @@ class MainActivity : AppCompatActivity() {
             MilliSeconds = (UpdateTime % 1000).toInt()
 
             when(MilliSeconds.toString().length){
-                0 -> milliSecond?.text = "000"
-                1 -> milliSecond?.text = "00$MilliSeconds"
-                2 -> milliSecond?.text = "0$MilliSeconds"
-                3 -> milliSecond?.text = "$MilliSeconds"
+                0 -> millisecond.text = "000"
+                1 -> millisecond.text = "00$MilliSeconds"
+                2 -> millisecond.text = "0$MilliSeconds"
+                3 -> millisecond.text = "$MilliSeconds"
             }
             if(Seconds.toString().length <2 ) {
                 second?.text = "0$Seconds"
