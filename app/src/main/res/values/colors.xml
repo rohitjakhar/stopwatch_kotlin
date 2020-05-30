@@ -6,7 +6,7 @@
     <color name="background">#0A3D62</color>
 
     <color name="hourTextColor">#D63031</color>
-    <color name="minuteTextColor">#2475B0</color>
+    <color name="minuteTextColor">#E316C7</color>
     <color name="secondTextColor">#25CCF7</color>
     <color name="dotColor">#45CE30</color>
 </resources>
