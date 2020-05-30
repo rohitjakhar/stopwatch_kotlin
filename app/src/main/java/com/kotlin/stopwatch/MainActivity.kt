@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         control.setOnClickListener {
-            StartTime = SystemClock.elapsedRealtime()
+
             if (flag){
                 handler?.removeCallbacks(runnable)
                 control.text = "START"
@@ -40,6 +40,17 @@ class MainActivity : AppCompatActivity() {
                 control.setBackgroundResource(R.drawable.stop_button_background)
                 flag = true
             }
+        }
+
+        reset.setOnClickListener {
+            handler?.removeCallbacks(runnable)
+            control.text = "START"
+            control.setBackgroundResource(R.drawable.start_button_background)
+            flag = false
+            millisecond.text = "000"
+            second.text = "00"
+            minute.text = "00"
+            hour.text = "00"
         }
         handler = Handler()
     }
